@@ -13,6 +13,7 @@ internal class UIHandler : MonoBehaviour
     [SerializeField] TextMeshProUGUI HealthbarText;
     [SerializeField] TextMeshProUGUI PotionText;
     [SerializeField] TextMeshProUGUI ShopGoldText;
+    [SerializeField] TextMeshProUGUI ArmorText;
     [Header("Accessors")]
     [SerializeField] private GameManager aGameManager;
 
@@ -39,5 +40,7 @@ internal class UIHandler : MonoBehaviour
         PotionText.SetText(aGameManager.aPotionHandler.PotionsAmount.ToString());
 
         ShopGoldText.SetText(aGameManager.Gold.ToString());
+
+        ArmorText.SetText(aGameManager.CurrentArmor.ToString() + " / " + aGameManager.MaxArmor.ToString());
     }
 }

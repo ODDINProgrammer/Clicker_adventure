@@ -6,16 +6,20 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    
-    private GameObject Enemy;
     [Header("Enemy")]
     [SerializeField] private Transform EnemySpawner;
-    internal int CurrentHP;
+    [SerializeField] private GameObject Enemy;
     
     [Header("Player parametrs")]
     [SerializeField] internal int MaxHP;
-    internal int CurrentDamage;
+    internal int CurrentHP;
+    
     [SerializeField] internal int MaxDamage;
+    internal int CurrentDamage;
+    
+    [SerializeField] internal int MaxArmor;
+    internal int CurrentArmor;
+    
     internal int CurrentEXP;
     internal int Level;
     [SerializeField] internal int[] RequiredExpToLevel;
@@ -52,6 +56,7 @@ public class GameManager : MonoBehaviour
         CurrentHP = MaxHP;
         aHealthBar.maxValue = MaxHP;
         aHealthBar.value = MaxHP;
+        CurrentArmor = MaxArmor;
 
         CurrentDamage = MaxDamage;
 
@@ -71,7 +76,7 @@ public class GameManager : MonoBehaviour
         if (Enemy == null)
         {
             //  GENERATE A CHANCE TO SPAWN A CHEST
-            float random = Random.Range(0f, 100f);
+            int random = Random.Range(0, 100);
             if (random <= ChanceForChest && ChanceForChest > 0)
             {
                 //  RECORD INTO STATISTICS
@@ -172,12 +177,20 @@ public class GameManager : MonoBehaviour
 
     internal void TakeDamage(int _damage)
     {
-        CurrentHP -= _damage;
+        int damage_to_take = CurrentArmor - _damage;
+
+        //  ENEMY ATTACK IS HIGHER THAN ARMOR RATING
+        if(damage_to_take < 0)
+        {
+            CurrentHP -= Mathf.Abs(damage_to_take);
+        }
+
         if (CurrentHP <= 0)
         {
             CurrentHP = 0;
             aDeathScreen.SetActive(true);
         }
+
         aHealthBar.value = CurrentHP;
         aUiHandler.UpdateUI();
     }
@@ -185,8 +198,10 @@ public class GameManager : MonoBehaviour
     internal void ModifyHP(int _value)
     {
         CurrentHP += _value;
+
         if (CurrentHP > MaxHP)
             CurrentHP = MaxHP;
+
         aHealthBar.value = CurrentHP;
         aUiHandler.UpdateUI();
     }

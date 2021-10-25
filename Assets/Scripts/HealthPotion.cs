@@ -14,13 +14,14 @@ internal class HealthPotion : MonoBehaviour
 
     public void UsePotion()
     {
-        if(PotionsAmount > 0 && aGameManager.CurrentHP < aGameManager.MaxHP)
+        if (PotionsAmount > 0 && aGameManager.CurrentHP < aGameManager.MaxHP)
         {
-            audio.Play();
-            PotionsAmount--;
-            aGameManager.aUiHandler.UpdateUI();
-            aGameManager.ModifyHP(HPRestore);
+           audio.Play();
+           PotionsAmount--;
+           aGameManager.aUiHandler.UpdateUI();
+           aGameManager.ModifyHP(HPRestore);
         }
+
     }
 
     public void AddPotion(int _value)

@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6138524051417034563}
   - component: {fileID: 2839661050341048945}
+  - component: {fileID: -4353876197258956464}
   - component: {fileID: 240998990}
   m_Layer: 5
   m_Name: Ghost
@@ -132,15 +133,29 @@ MonoBehaviour:
   MaxHP: 30
   Damage: 2
   Exp: 2
-  GoldOnDeath: 1
-  ChanceToDropPotion: 0
-  potion_Max_amount_to_drop: 0
+  GoldOnDeath: 3
   aGameManager: {fileID: 0}
+  aEnemyDrop: {fileID: 0}
   animator: {fileID: 0}
   healthbar: {fileID: 1284210815926690875}
   HPText: {fileID: 4662778027544401077}
   audio: {fileID: 9089178945830638053}
   _animator: {fileID: 0}
+--- !u!114 &-4353876197258956464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095265619086500133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5461fba30d5ba9e4fa88acc449dad56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potion_drop_chance: 10
+  potions_to_drop: 1
+  item_drop_chance: 0
 --- !u!95 &240998990
 Animator:
   serializedVersion: 3

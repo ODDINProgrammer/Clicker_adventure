@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6138524051417034563}
   - component: {fileID: 5014751851523771051}
+  - component: {fileID: -2131293731891237055}
   - component: {fileID: 1277194563}
   m_Layer: 5
   m_Name: Slime
@@ -133,15 +134,29 @@ MonoBehaviour:
   Damage: 1
   Exp: 1
   GoldOnDeath: 2
-  ChanceToDropPotion: 5
-  potion_Max_amount_to_drop: 1
   aGameManager: {fileID: 0}
+  aEnemyDrop: {fileID: 0}
   animator: {fileID: 0}
   healthbar: {fileID: 1284210815926690875}
   HPText: {fileID: 1645321721391179495}
   audio: {fileID: 2156897098888841812}
-  ChanceToReduceDamage: 10
+  ChanceToReduceDamage: 5
   _animator: {fileID: 0}
+--- !u!114 &-2131293731891237055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095265619086500133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5461fba30d5ba9e4fa88acc449dad56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potion_drop_chance: 5
+  potions_to_drop: 1
+  item_drop_chance: 0
 --- !u!95 &1277194563
 Animator:
   serializedVersion: 3

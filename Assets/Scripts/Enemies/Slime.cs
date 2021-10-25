@@ -5,7 +5,7 @@ using UnityEngine;
 public class Slime : Enemy
 {
     [Header("Special abilities")]
-    [SerializeField] private float ChanceToReduceDamage;
+    [SerializeField] private int ChanceToReduceDamage;
     [Header("Animator")]
     [SerializeField] private Animator _animator;
 
@@ -17,8 +17,9 @@ public class Slime : Enemy
     {
         if (aGameManager.CurrentDamage != 1 && ChanceToReduceDamage > 0)
         {
-            float random = Random.Range(0f, 100f);
-            if (random <= ChanceToReduceDamage) aGameManager.aPOPupHandler.PopUPDamageChange(-1, aGameManager.aPOPupHandler.GO_damageRed);
+            float random = Random.Range(0, 101);
+            if (random <= ChanceToReduceDamage) 
+                aGameManager.aPOPupHandler.PopUPDamageChange(-1, aGameManager.aPOPupHandler.GO_damageRed);
         }
         base.Death();
     }

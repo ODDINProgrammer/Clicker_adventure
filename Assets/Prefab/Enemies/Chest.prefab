@@ -399,6 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1006528153792067856}
   - component: {fileID: 9217581602758543870}
+  - component: {fileID: 3951803097045286967}
   m_Layer: 5
   m_Name: Chest
   m_TagString: Untagged
@@ -446,13 +447,27 @@ MonoBehaviour:
   Damage: 0
   Exp: 0
   GoldOnDeath: 0
-  ChanceToDropPotion: 90
-  potion_Max_amount_to_drop: 3
   aGameManager: {fileID: 0}
+  aEnemyDrop: {fileID: 0}
   animator: {fileID: 0}
   healthbar: {fileID: 5266376966186316392}
   HPText: {fileID: 1761471457605714662}
   audio: {fileID: 7755174253879961427}
+--- !u!114 &3951803097045286967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5031756526015919990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5461fba30d5ba9e4fa88acc449dad56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potion_drop_chance: 100
+  potions_to_drop: 3
+  item_drop_chance: 0
 --- !u!1 &5062373858457107641
 GameObject:
   m_ObjectHideFlags: 0

@@ -232,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8769035839892906102}
   - component: {fileID: 2589169956195228912}
+  - component: {fileID: 3657176095170693526}
   - component: {fileID: 29455593}
   m_Layer: 5
   m_Name: BetterSlime
@@ -280,15 +281,29 @@ MonoBehaviour:
   Damage: 3
   Exp: 5
   GoldOnDeath: 5
-  ChanceToDropPotion: 5
-  potion_Max_amount_to_drop: 1
   aGameManager: {fileID: 0}
+  aEnemyDrop: {fileID: 0}
   animator: {fileID: 0}
   healthbar: {fileID: 4419115722125175566}
   HPText: {fileID: 2339772887739060066}
   audio: {fileID: 410860040564898830}
   ChanceToReduceDamage: 20
   _animator: {fileID: 0}
+--- !u!114 &3657176095170693526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572010095244373520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5461fba30d5ba9e4fa88acc449dad56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potion_drop_chance: 20
+  potions_to_drop: 1
+  item_drop_chance: 0
 --- !u!95 &29455593
 Animator:
   serializedVersion: 3

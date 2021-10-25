@@ -14,11 +14,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] internal int Exp;
     [Header("Gold")]
     [SerializeField] internal int GoldOnDeath;
-    [Header("Potion")]
-    [SerializeField] internal int ChanceToDropPotion;
-    [SerializeField] internal int potion_Max_amount_to_drop;
     [Header("Accessors")]
     [SerializeField] internal GameManager aGameManager;
+    [SerializeField] internal EnemyDrop aEnemyDrop;
     [SerializeField] internal Animator animator;
     [SerializeField] internal Slider healthbar;
     [SerializeField] internal TextMeshProUGUI HPText;
@@ -52,6 +50,9 @@ public class Enemy : MonoBehaviour
     protected virtual void OnEnable()
     {
         aGameManager = FindObjectOfType<GameManager>();
+        aEnemyDrop = GetComponent<EnemyDrop>();
+        if (aEnemyDrop == null)
+            return;
         animator = GetComponent<Animator>();
 
         //  RESET ENEMY
@@ -72,10 +73,10 @@ public class Enemy : MonoBehaviour
     protected virtual void PotionDrop()
     {
         int random = Random.Range(0, 100);
-        if (random <= ChanceToDropPotion)
+        if (random <= aEnemyDrop.potion_drop_chance)
         {
             //  GENERATE AMOUNT TO GIVE
-            random = Random.Range(1, potion_Max_amount_to_drop);
+            random = Random.Range(1, aEnemyDrop.potions_to_drop);
             aGameManager.aPOPupHandler.PopUPPotions(random);
         }
     }
